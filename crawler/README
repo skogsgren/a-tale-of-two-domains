@@ -1,0 +1,15 @@
+Simple crawler for the Swedish discussion forum 'familjeliv'. As it crawls, it
+automatically backups the sites it has visited and will visit each 10 pages it
+goes through.
+
+If you want to use it, then run:
+    python3 -m venv venv
+    source venv/bin/activate
+    pip3 install -r requirements.txt
+    python3 crawler.py [URL_TO_SUBFORUM]
+
+Where [URL_TO_SUBFORUM] could be for example https://www.familjeliv.se/forum/26
+
+There is an additional script `get_tsv.py` which takes a folder of json files
+like `crawler.py` outputs and converts it into a tsv file which can easily be
+read by Pandas.

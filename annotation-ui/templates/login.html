@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Login
+{% endblock %}
+
+{% block main %}
+
+    <h2>Login</h2>
+    {% if failure %}
+        <div class="alert alert-warning">
+        <h5>Not a valid username!</h5>
+        </div>
+        <br>
+    {% endif %}
+    <ul class="list-group">
+        <li class="list-group-item list-group-item-secondary">Only lowercase letters</li>
+        <li class="list-group-item list-group-item-secondary">No spaces</li>
+    </ul>
+    <br>
+    <form action="/login" method="post">
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="username" name="username" placeholder="Username" type="text">
+        </div>
+        <button class="btn btn-primary" type="submit">Login</button>
+    </form>
+    </div>
+{% endblock %}

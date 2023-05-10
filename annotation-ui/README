@@ -1,0 +1,7 @@
+Based on https://github.com/skogsgren/lin354-annotation-ui, but uses SQLite as database instead of individual JSON-files.
+
+To get this running:
+    python3 -m venv venv
+    source venv/bin/activate
+    pip3 install -r requirements.txt
+    flask run

@@ -1,0 +1,187 @@
+{% extends "layout.html" %}
+
+{% block main %}
+    <p>POST {{ current_post }} / {{ total_length }} </p>
+    {% if history != [] %}
+    <form action="/" method="post">
+        <input name="idx" type="hidden" value="{{idx}}">
+        <input name="action" type="hidden" value="undo")>
+        <input type="submit" class="btn btn-info btn-lg" value="&#9100;" title="Undo"></input>
+    </form>
+    {% endif %}
+    <form action="/" method="post">
+        <input name="idx" type="hidden" value="{{idx}}">
+        <input name="action" type="hidden" value="na")>
+        <input type="submit" class="btn btn-info btn-lg" value="NA" title="NA"></input>
+    </form>
+    <div class="alert alert-primary mx-auto">
+        <p><a href="{{url}}">{{url}}</a></p>
+        <br>
+        <p>{{post}}</p>
+    </div>
+    <br>
+
+<form action="/" method="post">
+<input name="idx" type="hidden" value="{{idx}}"/>
+<input type="submit" style="display: none" />
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-0pky">1</th>
+    <th class="tg-0pky" colspan="3">Party politics positive</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky" colspan="2">0 = No, not positive to any coalition of parties<br>1 = Yes, the red-green coalition<br>2 = Yes, the liberal-conservative coalition<br>3 = Yes, the Sweden Democrats<br>4 = Feminist Initiative<br>5 = Feminist initiative and the Left Party<br>6 = The seven traditional parties<br>7 = Sweden Democrats and the Right</td>
+    <td class="tg-0pky">Only to be coded ”yes” if it is obvious, e.g. when the parties or<br>their representatives are mentioned, either explicitly or through<br>paraphrases</td>
+    <td class="tg-0pky"><input type="number" name="ppp" value=0></input></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">2</td>
+    <td class="tg-0pky" colspan="3">Party politics negative</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky" colspan="2">0 = No, not negative to any coalition of parties<br>1 = Yes, the red-green coalition<br>2 = Yes, the liberal-conservative coalition<br>3 = Yes, the Sweden Democrats<br>4 = Feminist Initiative<br>5 = Feminist initiative and the Left Party<br>6 = The seven traditional parties<br>7 = Sweden Democrats and the Right.</td>
+    <td class="tg-0pky">Only to be coded ”yes” if it is obvious, e.g. when the parties or<br>their representatives are mentioned, either explicitly or through<br>paraphrases</td>
+    <td class="tg-0pky"><input type="number" name="ppn" value=0></input></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">3</td>
+    <td class="tg-0pky" colspan="3">Aggressiveness</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky" colspan="2">0 = Not at all aggressive<br>1 = Partly aggressive<br>2 = Predominately aggressive<br></td>
+    <td class="tg-0pky">If some parts are aggressive annotate as 1,<br>if it mostly contains aggressive text, annotate as 2</td>
+    <td class="tg-0pky"><input type="number" name="agg" value=0></input></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">4</td>
+    <td class="tg-0pky" colspan="3">Hatred</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">0 = No<br>1 = Yes</td>
+    <td class="tg-0pky">Another user<br>Public persona<br>Sex/gender<br>Born abroad/<br>parents born abroad<br>Ethnicity<br>Sexual preference</td>
+    <td class="tg-0pky">If the post contains hatred against a specific person (column <br>to the left);<br><br>Possible examples: threat, expressions of disrespect, insults.</td>
+    <td class="tg-0pky"><input type="number" name="htr" value=0></input></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">5</td>
+    <td class="tg-0pky" colspan="3">Threat</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">0 = No<br>1 = Yes</td>
+    <td class="tg-0pky">Another user<br>Public persona<br>Sex/gender<br>Born abroad/<br>parents born abroad<br>Ethnicity<br>Sexual preference</td>
+    <td class="tg-0pky">If the post contains threat / assault against a specific <br>person (column to the left). Assault means that someone<br>threatens to harm an individual or his/her property. The<br>assault can be targeted against other people/animals/properties<br>which are important to that person.<br><br></td>
+    <td class="tg-0pky"><input type="number" name="thr" value=0></input></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">6</td>
+    <td class="tg-0pky" colspan="3">Male preference</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">0 = No<br>1 = Yes</td>
+    <td class="tg-0pky" colspan="2">Annotate as yes if the post includes words and/or expressions which state the<br>superiority of men over women, otherwise annotate as no.</td>
+    <td class="tg-0pky"><input type="number" name="mpr" value=0></input></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">7</td>
+    <td class="tg-0pky" colspan="3">Female preference</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">0 = No<br>1 = Yes</td>
+    <td class="tg-0pky" colspan="2">Annotate as yes if the post includes words and/or expressions which state the<br>superiority of women over men, otherwise annotate as no.</td>
+    <td class="tg-0pky"><input type="number" name="fpr" value=0></input></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">8</td>
+    <td class="tg-0pky" colspan="3">Gender equality preference</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">0 = No<br>1 = Yes</td>
+    <td class="tg-0pky" colspan="2">Annotate as yes if the post includes word and/or expression which state a preference<br>for gender equality</td>
+    <td class="tg-0pky"><input type="number" name="geq" value=0></input></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">9</td>
+    <td class="tg-0pky" colspan="3">Attitude towards foreigners</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">0 = No opinion<br>1 = Positive Attitude<br>2 = Negative Attitude<br>3 = Neutral Attitude</td>
+    <td class="tg-0pky" colspan="2">Foreigners specifically referring to simply people who were born abroad.<br></td>
+    <td class="tg-0pky"><input type="number" name="fat" value=0></input></td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">10</td>
+    <td class="tg-0lax" colspan="3">Attitude towards religion</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax">0 = No opinion<br>1 = Positive Attitude<br>2 = Negative Attitude<br>3 = Neutral Attitude</td>
+    <td class="tg-0lax" colspan="2">Annotate as negative if the post expresses negative opinion against explicitly<br>stated religion without specific criticism or misguided criticism. For example, one could<br>imagine a post criticizing a religion on its view on women in bad faith (i.e. not based on<br>any examples) as being labelled as negative. A positive example would be the opposite.<br>A neutral example would simply be commenting on aspects of the religion. </td>
+    <td class="tg-0pky"><input type="number" name="rat" value=0></input></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">11</td>
+    <td class="tg-0pky">Gender disadvantage</td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky" colspan="2">0 = No opinion<br>1 = Men are disadvantaged<br>2 = Women are disadvantaged</td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"><input type="number" name="gdi" value=0></input></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">12</td>
+    <td class="tg-0pky" colspan="3">Ethnicity disadvantage</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky" colspan="2">0 = No opinion<br>1 = Swedes are disadvantaged<br>2 = Immigrants are disadvantaged<br></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"><input type="number" name="edi" value=0></input></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">13</td>
+    <td class="tg-0pky" colspan="3">Us vs. Them</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky" colspan="2">0 = No<br>1 = Yes</td>
+    <td class="tg-0pky">If the post explicitly contains a language of ”us and them” or<br>clearly expresses an in-group out-group view the variable should<br>be coded yes.</td>
+    <td class="tg-0pky"><input type="number" name="ust" value=0></input></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">14</td>
+    <td class="tg-0pky" colspan="3">Sarcasm / Irony</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky" colspan="2">0 = No<br>1 = Yes, partly<br>2 = Yes, fully</td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"><input type="number" name="sir" value=0></input></td>
+  </tr>
+</tbody>
+</table>
+</form>
+{% endblock %}
+
+{% block footer %}
+<div style="display: flex;">
+<!-- LOGOUT BUTTON -->
+<div id="logout_group">
+<span>USER: {{user_id}}</span> <a  class="btn btn-secondary" href="/logout">Logout</a>
+</div>
+</div>
+{% endblock %}

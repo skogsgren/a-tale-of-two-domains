@@ -1,0 +1,9 @@
+{
+    "databases":{
+        "gugr": "data/gugr.db"
+    },
+    "forums": [
+        "Samhälle: Jämställdhet/Genus",
+        "Samhälle: Politik"
+    ]
+}

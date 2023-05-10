@@ -1,0 +1,10 @@
+{
+    "database": "familjeliv.db",
+    "css_classes": {
+        "thread": "thread",
+        "nav_forum": "paginator",
+        "text": "message-body",
+        "thread_header": "thread-info",
+        "nav_thread": "arrow"
+    }
+}
